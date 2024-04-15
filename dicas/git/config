@@ -1,0 +1,14 @@
+Host github.com-clayton25
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_clayton25
+
+Host github.com-claytonleao
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_claytonleao
+
+Host github.com-claytonleaodev
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_claytonleaodev

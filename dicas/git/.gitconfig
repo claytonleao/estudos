@@ -1,0 +1,8 @@
+[includeIf "gitdir:C:/GitHub_claytonleaotr/"]
+	path = .gitconfig-claytonleao25job
+
+[includeIf "gitdir:C:/GitHub_claytonleao/"]
+	path = .gitconfig-claytonleao
+	
+[includeIf "gitdir:C:/GitHub_claytonleaodev/"]
+	path = .gitconfig-claytonleaodev

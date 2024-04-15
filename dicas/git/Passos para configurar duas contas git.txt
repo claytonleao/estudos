@@ -1,0 +1,60 @@
+Passos para configurar duas contas git na mesma maquina
+
+0-) Criar um arquivo .gitconfig para cada conta
+	exemplos:	.gitconfig-claytonleao
+				.gitconfig-claytonleaodev
+
+	esses arquivos devem ficar na mesma pasta do .gitconfig
+	exemplo: C:\Users\clayt\.gitconfig
+
+1-) O conteudo do arquivo .gitconfig-claytonleao deve ficar conforme abaixo:
+
+	[user]
+    email = claytonleao@gmail.com
+    name =  claytonleao
+
+    o conteudo do arquivo .gitconfig-claytonleao deve ficar conforme abaixo:
+
+    [user]
+    email = claytonleaodev@gmail.com
+    name =  claytonleaodev
+
+
+2-) Ajuste o arquivo .gitconfig conforme exemplo abaixo:
+
+	[includeIf "gitdir:C:/GitHub_claytonleao/"]
+	path = .gitconfig-claytonleao
+	
+	[includeIf "gitdir:C:/GitHub_claytonleaodev/"]
+	path = .gitconfig-claytonleaodev
+
+
+3-) Acesse via Shell o diretorio .shh , exemplo: C:\Users\clayt\.ssh
+	Crie as chaves ssh para as contas conforme exemplo:
+	ssh-keygen -t rsa -C "claytonleao@gmail.com" -f "id_rsa_claytonleao"
+	ssh-keygen -t rsa -C "claytonleao@gmail.com" -f "id_rsa_claytonleaodev"
+
+4-) Adicione as chaves .pub Nas Contas no Guithub
+
+
+5-) Crie um arquivo config no diretorio .ssh exemplo: C:\Users\clayt\.ssh
+	segue exemplo do conteudo do arquivo: config
+
+	Host github.com-claytonleao
+	    HostName github.com
+	    User git
+	    IdentityFile ~/.ssh/id_rsa_claytonleao
+
+	Host github.com-claytonleaodev
+	    HostName github.com
+	    User git
+	    IdentityFile ~/.ssh/id_rsa_claytonleaodev
+
+
+6-) Clone o repositorio
+
+	Atenção: Agora quando voce for clonar um repositorio devera 
+			devera utilizar o nome configurado no arquivo config
+			do diretorio : C:\Users\clayt\.ssh\config
+
+	git clone git@github.com-claytonleaodev:claytonleaodev/Estudos.git
